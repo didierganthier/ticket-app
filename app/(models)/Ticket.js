@@ -3,15 +3,20 @@ import mongoose, { Schema } from "mongoose";
 mongoose.connect(process.env.MONGODB_URI);
 mongoose.Promise = global.Promise;
 
-const TicketSchema = new Schema({
+const ticketSchema = new Schema(
+  {
     title: String,
     description: String,
     category: String,
     priority: Number,
     progress: Number,
     status: String,
-}, { timestamps: true });
+  },
+  {
+    timestamps: true,
+  }
+);
 
-const TicketModel = mongoose.models.Ticket || mongoose.model('Ticket', TicketSchema);
+const Ticket = mongoose.models.Ticket || mongoose.model("Ticket", ticketSchema);
 
-export default TicketModel;
+export default Ticket;
