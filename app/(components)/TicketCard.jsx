@@ -16,7 +16,7 @@ import StatusDisplay from './StatusDisplay'
        <div className='flex mb-3'>
             <PriorityDisplay priority={ticket.priority}/>
         <div className='ml-auto'>
-            <DeleteBlock />
+            <DeleteBlock id={ticket._id}/>
         </div>
        </div>
        <h4 className=''>{ticket.title}</h4>
