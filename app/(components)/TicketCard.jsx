@@ -5,6 +5,12 @@ import ProgressDisplay from './ProgressDisplay'
 import StatusDisplay from './StatusDisplay'
  
  const TicketCard = ({ticket}) => {
+
+    const formatTimestamp = (timestamp) => {
+        const date = new Date(timestamp)
+        return date.toLocaleDateString('en-US', {month: 'numeric', day: 'numeric', year: '2-digit', hour: 'numeric', minute: 'numeric'})
+    }
+
    return (
      <div className='flex flex-col bg-card hover:bg-card-hover rounded-md shadow-lg p-3 m-2'>
        <div className='flex mb-3'>
@@ -21,7 +27,7 @@ import StatusDisplay from './StatusDisplay'
        <div className='flex-grow'></div>
         <div className='flex mt-2'>
             <div className='flex flex-col'>
-                <p className='text-xs my-1'>08/31/23 10:57PM</p>
+                <p className='text-xs my-1'>{formatTimestamp(ticket.createdAt)}</p>
                 <ProgressDisplay progress={ticket.progress}/>
             </div>
             <div className='ml-auto flex items-end'>
