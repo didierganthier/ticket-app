@@ -26,12 +26,10 @@ const TicketForm = () => {
 
         if (!res.ok) {
             throw new Error('Failed to create ticket');
-        }
-
-        setTimeout(() => {
-            router.refresh();
+        } else {
             router.push('/')
-        } , 2000)
+            router.refresh();
+        }   
     } 
 
     const startingTicketData = {
